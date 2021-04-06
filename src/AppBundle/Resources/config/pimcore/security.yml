@@ -1,0 +1,15 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/security.html
+security:
+    firewalls:
+        webservice:
+            pattern: ^/webservice_bwc  #changing existing url pattern to backward compatibility
+
+            
+        bakery_webservice:
+                pattern: ^/webservice
+                stateless: true
+                provider: pimcore_admin
+                guard:
+                    authenticators:
+                        - AppBundle\Security\Guard\WebserviceAuthenticator
